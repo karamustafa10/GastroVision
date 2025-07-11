@@ -1,0 +1,44 @@
+{
+  "short_name": "GastroVision",
+  "name": "GastroVision Restoran Otomasyonu",
+  "icons": [
+    {
+      "src": "favicon.ico",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "logo192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "logo512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#135E4B",
+  "theme_color": "#4CB572",
+  "description": "Restoranlar için modern, akıllı otomasyon ve raporlama uygulaması.",
+  "orientation": "portrait-primary",
+  "scope": ".",
+  "shortcuts": [
+    {
+      "name": "Masalar",
+      "short_name": "Masalar",
+      "description": "Masaları görüntüle ve yönet.",
+      "url": "/",
+      "icons": [{ "src": "logo192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Raporlar",
+      "short_name": "Raporlar",
+      "description": "Sipariş ve işlem raporlarını görüntüle.",
+      "url": "/",
+      "icons": [{ "src": "logo192.png", "sizes": "192x192" }]
+    }
+  ]
+} 

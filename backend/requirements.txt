@@ -1,0 +1,16 @@
+# Backend Python dependencies for GastroVision
+# Web framework
+flask
+flask-cors
+Flask-SocketIO
+python-socketio
+# Database
+pymongo
+# Computer vision and ML
+opencv-python
+pyzbar
+numpy
+pillow
+torch
+torchvision
+ultralytics 

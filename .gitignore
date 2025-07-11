@@ -1,0 +1,30 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+venv/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# VSCode
+.vscode/
+
+# Node
+node_modules/
+frontend/node_modules/
+package-lock.json
+frontend/package-lock.json
+
+# Model ve büyük dosyalar
+*.pt
+*.h5
+
+# Sistem dosyaları
+.DS_Store
+Thumbs.db
+
+# Çıktı ve geçici dosyalar
+*.log
+*.tmp 
