@@ -1,69 +1,116 @@
-# Restoran Otomasyon Sistemi
+# Restaurant Automation System
 
-Modern, kamera destekli, tam otomatik restoran yönetim sistemi.
+Modern, camera-assisted, fully automated restaurant management system.
 
-## Özellikler
-- **Masa, garson, yemek, sipariş ve rapor yönetimi**
-- **Garson performansı ve ilgi düzeyi ölçümü** (otomatik ve manuel)
-- **Gecikme cezası, masa/garson zaman damgaları, hesap sıfırlama**
-- **Detaylı raporlama:** masa, garson, yemek, tarih bazlı filtreleme
-- **Masa bazlı detay ekranı:** siparişler, toplam hesap, en çok tüketilen ürünler, garson performansı
-- **Kamera/otomasyon entegrasyonu için API altyapısı**
-- **Modern frontend:** Material UI, koyu/açık mod, animasyon, erişilebilirlik, PWA desteği
+---
 
-## Kullanılan Teknolojiler
-- **Backend:** Python, Flask, PyTorch (model entegrasyonu), MongoDB, OpenCV (kamera için altyapı)
+## 🚀 Features
+- **Table, waiter, food, order, and report management**
+- **Waiter performance & attention measurement** (automatic & manual)
+- **Delay penalty, table/waiter timestamps, account reset**
+- **Detailed reporting:** filter by table, waiter, food, date
+- **Table-based detail screen:** orders, total bill, most consumed products, waiter performance
+- **Camera/automation API integration**
+- **Modern frontend:** Material UI, dark/light mode, animation, accessibility, PWA support
+
+---
+
+## 🛠️ Tech Stack
+- **Backend:** Python, Flask, PyTorch, MongoDB, OpenCV
 - **Frontend:** React, Material UI, framer-motion, axios, react-helmet-async
-- **Veritabanı:** MongoDB
+- **Database:** MongoDB
 
-## Kurulum
-### 1. Backend
-- Python 3.12+ ve MongoDB kurulu olmalı
-- `cd backend`
-- `pip install -r requirements.txt`
-- MongoDB'yi başlatın (örnek bağlantı: `mongodb://localhost:27017`)
-- `python -m app` ile backend'i başlatın
-- **Not:** Büyük model dosyaları (`food101_yolov8_cls.pt`, `food101_mobilenetv2_small.h5`, `yolov8n.pt`) repoda tutulmaz, gerekirse harici olarak indirin veya yöneticinizden isteyin.
+---
 
-### 2. Frontend
-- `cd frontend`
-- `npm install`
-- `npm start` ile başlatın
+## 📁 Project Structure
+```
+cv-final/
+├── backend/           # Flask backend, API, ML models, DB
+│   ├── app.py
+│   ├── config.py
+│   ├── models/        # Data models (food, order, table, waiter)
+│   ├── routes/        # API endpoints
+│   ├── services/      # Video stream, business logic
+│   └── ...
+├── frontend/          # React frontend (Material UI, PWA)
+│   ├── src/
+│   └── ...
+├── data/              # Data scripts, collection, README
+├── notebooks/         # Jupyter notebooks (ML experiments)
+├── food101_yolov8_cls.pt, food101_mobilenetv2_small.h5, yolov8n.pt  # (Large ML models, not in repo)
+└── README.md
+```
 
-### 3. Test ve Kod Kalitesi
-- Backend için: `pylint backend/` (veya benzeri linter)
-- Frontend için: `npm run lint`
+---
 
-## .gitignore ve Büyük Dosyalar
-- Projede **.gitignore** ile aşağıdaki dosya ve klasörler sürüm kontrolüne dahil edilmez:
-  - `__pycache__/`, `*.pyc`, `venv/`, `node_modules/`, `*.pt`, `*.h5`, `*.log`, `*.tmp`
-- Büyük model dosyalarını repoya eklemeyin, harici paylaşın.
+## ⚡ Quick Start
 
-## Kamera/Otomasyon API Kullanımı
-- **Yemek tanıma:**
-  - `POST /api/camera/food_detected` → `{ table_id, food_id, quantity }`
-- **Garson tanıma:**
-  - `POST /api/camera/waiter_detected` → `{ table_id, waiter_id }`
+### 1. Backend Setup
+```bash
+cd backend
+pip install -r requirements.txt
+# Start MongoDB (default: mongodb://localhost:27017)
+python -m app
+```
+- **Python 3.12+** and **MongoDB** required.
+- Large model files (`*.pt`, `*.h5`) are NOT in the repo. Obtain them separately if needed.
 
-### Temel API Endpointleri
-- `/api/tables` : Masa işlemleri
-- `/api/waiters` : Garson işlemleri
-- `/api/foods` : Yemek işlemleri
-- `/api/reports` : Raporlama
-- `/api/video` : Kamera/otomasyon işlemleri
+### 2. Frontend Setup
+```bash
+cd frontend
+npm install
+npm start
+```
+- Runs on [http://localhost:3000](http://localhost:3000)
 
-## Gelişmiş Özellikler
-- Garson gecikme cezası ve ilgi düzeyi otomasyonu
-- Masa bazlı detaylı rapor ve analiz
-- Modern, responsive ve erişilebilir arayüz
-- PWA ve offline desteği
+### 3. Lint & Test
+- **Backend:** `pylint backend/`
+- **Frontend:** `npm run lint`
 
-## Yol Haritası
-- Kamera entegrasyonu için frontend test paneli
-- Gelişmiş raporlama ve analiz
-- Admin paneli ve kullanıcı rolleri
-- Canlı güncelleme ve güvenlik iyileştirmeleri
+---
 
-## Katkı ve Lisans
-- Katkı ve önerilere açıktır.
-- [MIT License](LICENSE) 
+## 📡 API Overview
+
+### Camera/Otomation Endpoints
+- **Food detection:**
+  - `POST /api/camera/food_detected`  
+    Body: `{ table_id, food_id, quantity }`
+- **Waiter detection:**
+  - `POST /api/camera/waiter_detected`  
+    Body: `{ table_id, waiter_id }`
+
+### Main Endpoints
+- `GET /api/tables`   — Table operations
+- `GET /api/waiters`  — Waiter operations
+- `GET /api/foods`    — Food operations
+- `GET /api/reports`  — Reporting
+- `GET /api/video`    — Camera/automation
+
+> For full API details, see backend/routes/*.py
+
+---
+
+## 📝 Development Notes
+- **.gitignore** excludes: `__pycache__/`, `*.pyc`, `venv/`, `node_modules/`, `*.pt`, `*.h5`, `*.log`, `*.tmp`
+- **Large model files** are not versioned. Share externally if needed.
+- **Frontend**: Modern React, Material UI, PWA, dark/light mode, animations.
+- **Backend**: Modular Flask, ML model integration, MongoDB.
+
+---
+
+## 🗺️ Roadmap
+- Frontend camera test panel
+- Advanced reporting & analytics
+- Admin panel & user roles
+- Live updates & security improvements
+
+---
+
+## 🤝 Contributing
+- Contributions and suggestions are welcome!
+- Please open issues or pull requests for improvements.
+
+---
+
+## 📄 License
+[MIT License](LICENSE) 
