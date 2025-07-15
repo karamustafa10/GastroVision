@@ -113,4 +113,6 @@ npm start
 ---
 
 ## 📄 License
-[MIT License](LICENSE) 
+[MIT License](LICENSE)
+
+This project is licensed under the MIT License. For more information, see the LICENSE file. 
