@@ -47,10 +47,9 @@ cv-final/
 
 ### 1. Backend Setup
 ```bash
-cd backend
 pip install -r requirements.txt
 # Start MongoDB (default: mongodb://localhost:27017)
-python -m app
+python -m backend.app
 ```
 - **Python 3.12+** and **MongoDB** required.
 - Large model files (`*.pt`, `*.h5`) are NOT in the repo. Obtain them separately if needed.
